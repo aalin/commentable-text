@@ -1,0 +1,30 @@
+.commentButton {
+  border: 0;
+  background: #000;
+  border-radius: 3px;
+  color: #fff;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    border: 0 solid #f0f;
+    top: 100%;
+    left: 50%;
+    border-color: #000 transparent transparent transparent;
+    border-width: 5px 5px 0 5px;
+    transform: translateX(-50%);
+  }
+}
+
+.commentToolbar {
+  transition: top .2s, left .2s;
+  position: absolute;
+  background: #000;
+  color: #fff;
+  transform: translate(-50%, -100%);
+}
+
+.commentableText {
+  position: relative;
+}
