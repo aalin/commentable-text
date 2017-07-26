@@ -2,14 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './comment_form.css';
 
-function clickHandler(onClick, comment, e) {
-  e.preventDefault();
-  onClick(comment.quote, comment.paragraph, comment.start, comment.end, e.target.form['comment'].value);
+function createHandler(onCreate, quote, e) {
+  onCreate(quote, e.target.form['comment'].value);
+}
+
+function preventDefault(fn) {
+  return (e) => {
+    if (e && e.preventDefault) {
+      e.preventDefault();
+    };
+
+    fn();
+  }
 }
 
 export default
-function CommentForm({ createComment, discardComment, comment = null }) {
-  if (comment === null) {
+function CommentForm({ createComment, discardComment, newComment = null }) {
+  if (newComment === null) {
     return null;
   }
 
@@ -19,15 +28,15 @@ function CommentForm({ createComment, discardComment, comment = null }) {
       <div className={styles.form}>
         <form>
           <h3>New comment</h3>
-          <blockquote className={styles.quote}>{comment.quote}</blockquote>
+          <blockquote className={styles.quote}>{newComment.quote.text}</blockquote>
           <textarea name="comment" />
           <button
             className={styles.submitButton}
-            onClick={clickHandler.bind(null, createComment, comment)}
+            onClick={createHandler.bind(null, createComment, newComment.quote)}
           >Submit</button>
           <button
             className={styles.discardButton}
-            onClick={clickHandler.bind(null, discardComment, comment)}
+            onClick={preventDefault(discardComment)}
           >Discard</button>
         </form>
       </div>
@@ -38,7 +47,7 @@ function CommentForm({ createComment, discardComment, comment = null }) {
 CommentForm.propTypes = {
   discardComment: PropTypes.func.isRequired,
   createComment: PropTypes.func.isRequired,
-  comment: PropTypes.shape({
-    quote: PropTypes.string
+  newComment: PropTypes.shape({
+    quote: PropTypes.object
   })
 }

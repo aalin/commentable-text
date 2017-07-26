@@ -10,8 +10,8 @@ function newComment(quote, paragraph, start, end) {
 }
 
 export
-function createComment(quote, paragraph, start, end, body) {
-  return action(CONSTANTS.CREATE, { quote, paragraph, start, end, body });
+function createComment(quote, comment) {
+  return action(CONSTANTS.CREATE, { quote, comment });
 }
 
 export

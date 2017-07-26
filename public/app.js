@@ -19336,7 +19336,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-var store = Object(__WEBPACK_IMPORTED_MODULE_3_redux__["c" /* createStore */])(__WEBPACK_IMPORTED_MODULE_4__reducers__["a" /* default */]);
+var store = Object(__WEBPACK_IMPORTED_MODULE_3_redux__["c" /* createStore */])(__WEBPACK_IMPORTED_MODULE_4__reducers__["a" /* default */], window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 __WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
   __WEBPACK_IMPORTED_MODULE_2_react_redux__["a" /* Provider */],
@@ -32707,10 +32707,14 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 
 
+var TEXT = '\nThe oncilla (Leopardus tigrinus), also known as the northern tiger cat and tigrillo, is a small spotted cat ranging from Central America up to central Brazil. It is listed as Vulnerable on the IUCN Red List because the population is threatened by deforestation and conversion of habitat to agriculture.[1]\n\nIn 2013, it was proposed to assign the population in southern Brazil to a new species L. guttulus, after it was found not to be interbreeding with the L. tigrinus population in northeast Brazil.[3]\n\nThe oncilla resembles the margay and the ocelot,[4] but it is smaller, with a slender build and narrower muzzle. It grows to 38 to 59 centimetres (15 to 23 in) long, plus a 20 to 42 centimetres (7.9 to 16.5 in) tail.[5] While this is somewhat longer than the average domestic cat, Leopardus tigrinus is generally lighter, weighing 1.5 to 3 kilograms (3.3 to 6.6 lb).[6]\n\nThe fur is thick and soft, ranging from light brown to dark ochre, with numerous dark rosettes across the back and flanks. The underside is pale with dark spots and the tail is ringed. The backs of the ears are black with bold ocelli. The rosettes are black or brown, open in the center, and irregularly shaped. The legs have medium-sized spots tapering to smaller spots near the paws. This coloration helps the oncilla blend in with the mottled sunlight of the tropical forest understory. The oncilla\'s jaw is shortened, with fewer teeth, but with well-developed carnassials and canines.[4]'.trim();
+
 function getInitialState() {
   return {
     comments: [],
-    newComment: null
+    newComment: null,
+    highlighted: null,
+    text: TEXT
   };
 }
 
@@ -32746,82 +32750,29 @@ function getInitialState() {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = App;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(60);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_redux__ = __webpack_require__(201);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_commentable_text__ = __webpack_require__(527);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_comment_form__ = __webpack_require__(528);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_comment_section__ = __webpack_require__(551);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_css__ = __webpack_require__(535);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__app_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__entities_comments_actions__ = __webpack_require__(534);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__containers_commentable_text__ = __webpack_require__(553);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__containers_comment_form__ = __webpack_require__(554);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__containers_comment_section__ = __webpack_require__(552);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_css__ = __webpack_require__(535);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__app_css__);
 
 
 
 
 
 
-
-var TEXT = '\nThe oncilla (Leopardus tigrinus), also known as the northern tiger cat and tigrillo, is a small spotted cat ranging from Central America up to central Brazil. It is listed as Vulnerable on the IUCN Red List because the population is threatened by deforestation and conversion of habitat to agriculture.[1]\n\nIn 2013, it was proposed to assign the population in southern Brazil to a new species L. guttulus, after it was found not to be interbreeding with the L. tigrinus population in northeast Brazil.[3]\n\nThe oncilla resembles the margay and the ocelot,[4] but it is smaller, with a slender build and narrower muzzle. It grows to 38 to 59 centimetres (15 to 23 in) long, plus a 20 to 42 centimetres (7.9 to 16.5 in) tail.[5] While this is somewhat longer than the average domestic cat, Leopardus tigrinus is generally lighter, weighing 1.5 to 3 kilograms (3.3 to 6.6 lb).[6]\n\nThe fur is thick and soft, ranging from light brown to dark ochre, with numerous dark rosettes across the back and flanks. The underside is pale with dark spots and the tail is ringed. The backs of the ears are black with bold ocelli. The rosettes are black or brown, open in the center, and irregularly shaped. The legs have medium-sized spots tapering to smaller spots near the paws. This coloration helps the oncilla blend in with the mottled sunlight of the tropical forest understory. The oncilla\'s jaw is shortened, with fewer teeth, but with well-developed carnassials and canines.[4]';
-
-function App(_ref) {
-  var newComment = _ref.newComment,
-      createComment = _ref.createComment,
-      discardComment = _ref.discardComment,
-      goToComment = _ref.goToComment,
-      comment = _ref.comment,
-      comments = _ref.comments,
-      highlightedComment = _ref.highlightedComment;
-
+function App() {
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
     'div',
-    { className: __WEBPACK_IMPORTED_MODULE_5__app_css___default.a.app },
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_commentable_text__["a" /* default */], {
-      text: TEXT,
-      newComment: newComment,
-      highlightedComment: highlightedComment
-    }),
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_comment_form__["a" /* default */], {
-      comment: comment,
-      createComment: createComment,
-      discardComment: discardComment
-    }),
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__components_comment_section__["a" /* default */], {
-      comments: comments,
-      goToComment: goToComment
-    })
+    { className: __WEBPACK_IMPORTED_MODULE_4__app_css___default.a.app },
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__containers_commentable_text__["a" /* default */], null),
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__containers_comment_form__["a" /* default */], null),
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__containers_comment_section__["a" /* default */], null)
   );
 }
-
-
-
-function mapStateToProps(state) {
-  return {
-    comments: state.comments.comments,
-    comment: state.comments.newComment,
-    highlightedComment: state.comments.highlighted
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    newComment: function newComment(quote, paragraph, start, end) {
-      dispatch(__WEBPACK_IMPORTED_MODULE_6__entities_comments_actions__["d" /* newComment */](quote, paragraph, start, end));
-    },
-    createComment: function createComment(quote, paragraph, start, end, body) {
-      dispatch(__WEBPACK_IMPORTED_MODULE_6__entities_comments_actions__["a" /* createComment */](quote, paragraph, start, end, body));
-    },
-    discardComment: function discardComment() {
-      dispatch(__WEBPACK_IMPORTED_MODULE_6__entities_comments_actions__["b" /* discardComment */]());
-    },
-    goToComment: function goToComment(comment, e) {
-      e.preventDefault();
-      dispatch(__WEBPACK_IMPORTED_MODULE_6__entities_comments_actions__["c" /* highlightComment */](comment));
-    }
-  };
-}
-
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(mapStateToProps, mapDispatchToProps)(App));
 
 /***/ }),
 /* 527 */
@@ -32858,16 +32809,20 @@ function Paragraph(_ref) {
       index = _ref.index;
 
   if (highlight) {
-    var pre = text.substr(0, highlight.start);
-    var mid = text.substr(highlight.start, highlight.end - highlight.start);
-    var post = text.slice(highlight.end);
+    var quote = highlight.quote;
+
+
+    var pre = text.substr(0, quote.start);
+    var mid = text.substr(quote.start, quote.end - quote.start);
+    var post = text.slice(quote.end);
+
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'p',
       { 'data-index': index },
       pre,
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'strong',
-        null,
+        'span',
+        { className: __WEBPACK_IMPORTED_MODULE_2__commentable_text_css___default.a.highlight },
         mid
       ),
       post
@@ -32928,19 +32883,21 @@ var CommentableText = function (_React$Component) {
   _createClass(CommentableText, [{
     key: 'newComment',
     value: function newComment() {
-      var _state$selection = this.state.selection,
-          quote = _state$selection.quote,
-          index = _state$selection.index,
-          start = _state$selection.start,
-          end = _state$selection.end;
+      var selection = this.state.selection;
 
 
-      if (!quote) {
+      if (!selection.text) {
         return;
       }
 
+      var paragraph = selection.paragraph,
+          start = selection.start,
+          end = selection.end,
+          text = selection.text;
+
+
       this.clearSelection();
-      this.props.newComment(quote, index, start, end);
+      this.props.newComment({ paragraph: paragraph, start: start, end: end, text: text });
     }
   }, {
     key: 'clearSelection',
@@ -32975,11 +32932,11 @@ var CommentableText = function (_React$Component) {
 
       this.setState({
         selection: {
-          index: index,
+          paragraph: index,
           start: start,
           end: end,
           rect: rect,
-          quote: selection.toString()
+          text: selection.toString()
         }
       });
     }
@@ -32997,14 +32954,14 @@ var CommentableText = function (_React$Component) {
     key: 'renderText',
     value: function renderText() {
       var paragraphs = this.props.text.split(/\n+/);
-      var highlightedComment = this.props.highlightedComment || {};
+      var highlightedComment = this.props.highlightedComment;
 
       return paragraphs.map(function (text, i) {
         return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Paragraph, {
           key: i,
           text: text,
           index: i,
-          highlight: highlightedComment.paragraph === i && highlightedComment
+          highlight: highlightedComment && highlightedComment.quote.paragraph === i && highlightedComment
         });
       });
     }
@@ -33049,18 +33006,27 @@ CommentableText.propTypes = {
 
 
 
-function clickHandler(onClick, comment, e) {
-  e.preventDefault();
-  onClick(comment.quote, comment.paragraph, comment.start, comment.end, e.target.form['comment'].value);
+function createHandler(onCreate, quote, e) {
+  onCreate(quote, e.target.form['comment'].value);
+}
+
+function preventDefault(fn) {
+  return function (e) {
+    if (e && e.preventDefault) {
+      e.preventDefault();
+    };
+
+    fn();
+  };
 }
 
 function CommentForm(_ref) {
   var createComment = _ref.createComment,
       discardComment = _ref.discardComment,
-      _ref$comment = _ref.comment,
-      comment = _ref$comment === undefined ? null : _ref$comment;
+      _ref$newComment = _ref.newComment,
+      newComment = _ref$newComment === undefined ? null : _ref$newComment;
 
-  if (comment === null) {
+  if (newComment === null) {
     return null;
   }
 
@@ -33082,14 +33048,14 @@ function CommentForm(_ref) {
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'blockquote',
           { className: __WEBPACK_IMPORTED_MODULE_2__comment_form_css___default.a.quote },
-          comment.quote
+          newComment.quote.text
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', { name: 'comment' }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'button',
           {
             className: __WEBPACK_IMPORTED_MODULE_2__comment_form_css___default.a.submitButton,
-            onClick: clickHandler.bind(null, createComment, comment)
+            onClick: createHandler.bind(null, createComment, newComment.quote)
           },
           'Submit'
         ),
@@ -33097,7 +33063,7 @@ function CommentForm(_ref) {
           'button',
           {
             className: __WEBPACK_IMPORTED_MODULE_2__comment_form_css___default.a.discardButton,
-            onClick: clickHandler.bind(null, discardComment, comment)
+            onClick: preventDefault(discardComment)
           },
           'Discard'
         )
@@ -33109,8 +33075,8 @@ function CommentForm(_ref) {
 CommentForm.propTypes = {
   discardComment: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func.isRequired,
   createComment: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func.isRequired,
-  comment: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.shape({
-    quote: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string
+  newComment: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.shape({
+    quote: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object
   })
 };
 
@@ -33723,8 +33689,8 @@ function newComment(quote, paragraph, start, end) {
   return action(__WEBPACK_IMPORTED_MODULE_0__constants__["a" /* default */].NEW, { quote: quote, paragraph: paragraph, start: start, end: end });
 }
 
-function createComment(quote, paragraph, start, end, body) {
-  return action(__WEBPACK_IMPORTED_MODULE_0__constants__["a" /* default */].CREATE, { quote: quote, paragraph: paragraph, start: start, end: end, body: body });
+function createComment(quote, comment) {
+  return action(__WEBPACK_IMPORTED_MODULE_0__constants__["a" /* default */].CREATE, { quote: quote, comment: comment });
 }
 
 function discardComment() {
@@ -33822,13 +33788,14 @@ exports = module.exports = __webpack_require__(531)(undefined);
 
 
 // module
-exports.push([module.i, "._3lDiMLmQo4P7GDk8hKD-WQ{border:0;background:#000;border-radius:3px;color:#fff;position:relative}._3lDiMLmQo4P7GDk8hKD-WQ:after{content:\"\";position:absolute;border:0 solid #f0f;top:100%;left:50%;border-color:#000 transparent transparent;border-width:5px 5px 0;-webkit-transform:translateX(-50%);transform:translateX(-50%)}._2P7jjOg-I1wemHBOZYn95F{-webkit-transition:top .2s,left .2s;transition:top .2s,left .2s;position:absolute;background:#000;color:#fff;-webkit-transform:translate(-50%,-100%);transform:translate(-50%,-100%)}._20vSQLzr5FB6fKyuUUZ3F_{position:relative}", ""]);
+exports.push([module.i, "._3lDiMLmQo4P7GDk8hKD-WQ{border:0;background:#000;border-radius:3px;color:#fff;position:relative}._3lDiMLmQo4P7GDk8hKD-WQ:after{content:\"\";position:absolute;border:0 solid #f0f;top:100%;left:50%;border-color:#000 transparent transparent;border-width:5px 5px 0;-webkit-transform:translateX(-50%);transform:translateX(-50%)}._2P7jjOg-I1wemHBOZYn95F{-webkit-transition:top .2s,left .2s;transition:top .2s,left .2s;position:absolute;background:#000;color:#fff;-webkit-transform:translate(-50%,-100%);transform:translate(-50%,-100%)}._20vSQLzr5FB6fKyuUUZ3F_{position:relative}.mjuyPsyE7MStKVjudvcDs{background-color:#def1d7}", ""]);
 
 // exports
 exports.locals = {
 	"commentButton": "_3lDiMLmQo4P7GDk8hKD-WQ",
 	"commentToolbar": "_2P7jjOg-I1wemHBOZYn95F",
-	"commentableText": "_20vSQLzr5FB6fKyuUUZ3F_"
+	"commentableText": "_20vSQLzr5FB6fKyuUUZ3F_",
+	"highlight": "mjuyPsyE7MStKVjudvcDs"
 };
 
 /***/ }),
@@ -33882,9 +33849,6 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 function Comment(_ref) {
   var quote = _ref.quote,
-      paragraph = _ref.paragraph,
-      start = _ref.start,
-      end = _ref.end,
       comment = _ref.comment,
       onClick = _ref.onClick;
 
@@ -33897,7 +33861,7 @@ function Comment(_ref) {
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'a',
         { href: '#', onClick: onClick },
-        quote
+        quote.text
       )
     ),
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -33934,6 +33898,98 @@ CommentSection.propTypes = {
   comments: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.array.isRequired,
   goToComment: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func.isRequired
 };
+
+/***/ }),
+/* 552 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_redux__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_comment_section__ = __webpack_require__(551);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_comments_actions__ = __webpack_require__(534);
+
+
+
+
+function mapStateToProps(state) {
+  return {
+    comments: state.comments.comments
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    goToComment: function goToComment(comment, e) {
+      if (e && e.preventDefault) {
+        e.preventDefault();
+      }
+
+      dispatch(__WEBPACK_IMPORTED_MODULE_2__entities_comments_actions__["c" /* highlightComment */](comment));
+    }
+  };
+}
+
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_0_react_redux__["b" /* connect */])(mapStateToProps, mapDispatchToProps)(__WEBPACK_IMPORTED_MODULE_1__components_comment_section__["a" /* default */]));
+
+/***/ }),
+/* 553 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_redux__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_commentable_text__ = __webpack_require__(527);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_comments_actions__ = __webpack_require__(534);
+
+
+
+
+function mapStateToProps(state) {
+  return {
+    highlightedComment: state.comments.highlighted,
+    text: state.comments.text
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    newComment: function newComment(quote) {
+      dispatch(__WEBPACK_IMPORTED_MODULE_2__entities_comments_actions__["d" /* newComment */](quote));
+    }
+  };
+}
+
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_0_react_redux__["b" /* connect */])(mapStateToProps, mapDispatchToProps)(__WEBPACK_IMPORTED_MODULE_1__components_commentable_text__["a" /* default */]));
+
+/***/ }),
+/* 554 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_redux__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_comment_form__ = __webpack_require__(528);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_comments_actions__ = __webpack_require__(534);
+
+
+
+
+function mapStateToProps(state) {
+  return {
+    newComment: state.comments.newComment
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    createComment: function createComment(quote, comment) {
+      dispatch(__WEBPACK_IMPORTED_MODULE_2__entities_comments_actions__["a" /* createComment */](quote, comment));
+    },
+    discardComment: function discardComment() {
+      dispatch(__WEBPACK_IMPORTED_MODULE_2__entities_comments_actions__["b" /* discardComment */]());
+    }
+  };
+}
+
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_0_react_redux__["b" /* connect */])(mapStateToProps, mapDispatchToProps)(__WEBPACK_IMPORTED_MODULE_1__components_comment_form__["a" /* default */]));
 
 /***/ })
 /******/ ]);

@@ -5,10 +5,19 @@ import PropTypes from 'prop-types';
 
 function Paragraph({ highlight = null, text, index }) {
   if (highlight) {
-    const pre = text.substr(0, highlight.start);
-    const mid = text.substr(highlight.start, highlight.end - highlight.start);
-    const post = text.slice(highlight.end);
-    return <p data-index={index}>{pre}<strong>{mid}</strong>{post}</p>;
+    const { quote } = highlight;
+
+    const pre = text.substr(0, quote.start);
+    const mid = text.substr(quote.start, quote.end - quote.start);
+    const post = text.slice(quote.end);
+
+    return (
+      <p data-index={index}>
+        {pre}
+        <span className={styles.highlight}>{mid}</span>
+        {post}
+      </p>
+    );
   }
 
   return <p data-index={index}>{text}</p>
@@ -50,14 +59,16 @@ class CommentableText extends React.Component {
   }
 
   newComment() {
-    const { quote, index, start, end } = this.state.selection;
-    
-    if (!quote) {
+    const { selection } = this.state;
+
+    if (!selection.text) {
       return;
     }
 
+    const { paragraph, start, end, text } = selection;
+
     this.clearSelection();
-    this.props.newComment(quote, index, start, end);
+    this.props.newComment({ paragraph, start, end, text });
   }
 
   clearSelection() {
@@ -90,11 +101,11 @@ class CommentableText extends React.Component {
 
     this.setState({
       selection: {
-        index,
+        paragraph: index,
         start,
         end,
         rect,
-        quote: selection.toString()
+        text: selection.toString()
       }
     });
   }
@@ -110,7 +121,7 @@ class CommentableText extends React.Component {
 
   renderText() {
     const paragraphs = this.props.text.split(/\n+/);
-    const highlightedComment = this.props.highlightedComment || {};
+    const highlightedComment = this.props.highlightedComment;
 
     return paragraphs.map((text, i) => {
       return (
@@ -118,7 +129,7 @@ class CommentableText extends React.Component {
           key={i}
           text={text}
           index={i}
-          highlight={highlightedComment.paragraph === i && highlightedComment}
+          highlight={highlightedComment && highlightedComment.quote.paragraph === i && highlightedComment}
         />
       );
     });

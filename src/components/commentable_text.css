@@ -28,3 +28,7 @@
 .commentableText {
   position: relative;
 }
+
+.highlight {
+  background-color: #def1d7;
+}

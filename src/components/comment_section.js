@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Comment({ quote, paragraph, start, end, comment, onClick }) {
+function Comment({ quote, comment, onClick }) {
   return (
     <li>
-      <p><a href="#" onClick={onClick}>{quote}</a></p>
+      <p><a href="#" onClick={onClick}>{quote.text}</a></p>
       <p>{comment}</p>
     </li>
   );
