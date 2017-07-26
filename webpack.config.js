@@ -1,5 +1,5 @@
 const path = require('path');
-// const BabiliPlugin = require("babili-webpack-plugin");
+// const BabiliPlugin = require('babili-webpack-plugin');
 const webpack = require('webpack');
 
 const plugins = [];
@@ -30,9 +30,9 @@ module.exports = {
   target: 'web',
 
   output: {
-    path: path.resolve(__dirname, "public"),
-    filename: "app.js",
-    publicPath: "/",
+    path: path.resolve(__dirname, 'public'),
+    filename: 'app.js',
+    publicPath: '/',
   },
 
   plugins: plugins,
@@ -41,7 +41,7 @@ module.exports = {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: "babel-loader"
+        loader: 'babel-loader'
       }, {
         test: /\.css$/,
         use: [
@@ -50,19 +50,17 @@ module.exports = {
           'postcss-loader'
         ]
       }, {
-        test: /\.png$/,
-        loader: "url-loader"
+        test: /\.txt$/,
+        loader: 'raw-loader'
       },
     ]
   },
 
   resolve: {
     modules: [
-      "node_modules"
+      'node_modules'
     ],
 
-    extensions: [".js"]
-  },
-
-//   plugins: [ new BabiliPlugin({}, {}) ]
+    extensions: ['.js']
+  }
 };
