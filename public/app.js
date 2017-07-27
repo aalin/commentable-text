@@ -9360,7 +9360,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(533);
+var	fixUrls = __webpack_require__(534);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -19803,7 +19803,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_redux__ = __webpack_require__(94);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_redux__ = __webpack_require__(139);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__reducers__ = __webpack_require__(525);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app__ = __webpack_require__(528);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app__ = __webpack_require__(529);
 
 
 
@@ -33199,7 +33199,7 @@ webpackContext.id = 526;
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__constants__ = __webpack_require__(214);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__content_txt__ = __webpack_require__(542);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__content_txt__ = __webpack_require__(528);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__content_txt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__content_txt__);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -33244,16 +33244,22 @@ function getInitialState() {
 
 /***/ }),
 /* 528 */
+/***/ (function(module, exports) {
+
+module.exports = "The oncilla (Leopardus tigrinus), also known as the northern tiger cat and tigrillo, is a small spotted cat ranging from Central America up to central Brazil. It is listed as Vulnerable on the IUCN Red List because the population is threatened by deforestation and conversion of habitat to agriculture.\n\nIn 2013, it was proposed to assign the population in southern Brazil to a new species L. guttulus, after it was found not to be interbreeding with the L. tigrinus population in northeast Brazil.\n\nThe oncilla resembles the margay and the ocelot, but it is smaller, with a slender build and narrower muzzle. It grows to 38 to 59 centimetres (15 to 23 in) long, plus a 20 to 42 centimetres (7.9 to 16.5 in) tail. While this is somewhat longer than the average domestic cat, Leopardus tigrinus is generally lighter, weighing 1.5 to 3 kilograms (3.3 to 6.6 lb).\n\nThe fur is thick and soft, ranging from light brown to dark ochre, with numerous dark rosettes across the back and flanks. The underside is pale with dark spots and the tail is ringed. The backs of the ears are black with bold ocelli. The rosettes are black or brown, open in the center, and irregularly shaped. The legs have medium-sized spots tapering to smaller spots near the paws. This coloration helps the oncilla blend in with the mottled sunlight of the tropical forest understory. The oncilla's jaw is shortened, with fewer teeth, but with well-developed carnassials and canines.\n"
+
+/***/ }),
+/* 529 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = App;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(53);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__containers_commentable_text__ = __webpack_require__(529);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__containers_comment_form__ = __webpack_require__(534);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__containers_comment_section__ = __webpack_require__(538);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_css__ = __webpack_require__(540);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__containers_commentable_text__ = __webpack_require__(530);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__containers_comment_form__ = __webpack_require__(535);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__containers_comment_section__ = __webpack_require__(539);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_css__ = __webpack_require__(541);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__app_css__);
 
 
@@ -33272,12 +33278,12 @@ function App() {
 }
 
 /***/ }),
-/* 529 */
+/* 530 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_redux__ = __webpack_require__(94);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_commentable_text__ = __webpack_require__(530);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_commentable_text__ = __webpack_require__(531);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_comments_actions__ = __webpack_require__(143);
 
 
@@ -33301,7 +33307,7 @@ function mapDispatchToProps(dispatch) {
 /* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_0_react_redux__["b" /* connect */])(mapStateToProps, mapDispatchToProps)(__WEBPACK_IMPORTED_MODULE_1__components_commentable_text__["a" /* default */]));
 
 /***/ }),
-/* 530 */
+/* 531 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -33309,7 +33315,7 @@ function mapDispatchToProps(dispatch) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(180);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__commentable_text_css__ = __webpack_require__(531);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__commentable_text_css__ = __webpack_require__(532);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__commentable_text_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__commentable_text_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types__ = __webpack_require__(72);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_prop_types__);
@@ -33328,10 +33334,25 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
+function getPreCaretOffset(range, paragraph) {
+  // https://stackoverflow.com/a/12500791/1375004
+  var selected = range.toString().length;
+  var preCaretRange = range.cloneRange();
+  preCaretRange.selectNodeContents(paragraph);
+  preCaretRange.setEnd(range.endContainer, range.endOffset);
+
+  if (selected) {
+    return preCaretRange.toString().length - selected;
+  } else {
+    return preCaretRange.toString().length;
+  }
+}
+
 function Paragraph(_ref) {
   var _ref$highlight = _ref.highlight,
       highlight = _ref$highlight === undefined ? null : _ref$highlight,
-      text = _ref.text,
+      _ref$text = _ref.text,
+      text = _ref$text === undefined ? '' : _ref$text,
       index = _ref.index;
 
   if (highlight) {
@@ -33392,6 +33413,14 @@ function CommentToolbar(props) {
   );
 }
 
+function findElement(element, nodeName) {
+  if (element.nodeName === nodeName) {
+    return element;
+  }
+
+  return findElement(element.parentNode, nodeName);
+}
+
 var CommentableText = function (_React$Component) {
   _inherits(CommentableText, _React$Component);
 
@@ -33400,7 +33429,7 @@ var CommentableText = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (CommentableText.__proto__ || Object.getPrototypeOf(CommentableText)).call(this, props));
 
-    _this.state = { selection: {} };
+    _this.state = { selection: null };
     _this.onMouseUp = _this.onMouseUp.bind(_this);
     _this.newComment = _this.newComment.bind(_this);
     return _this;
@@ -33412,7 +33441,7 @@ var CommentableText = function (_React$Component) {
       var selection = this.state.selection;
 
 
-      if (!selection.text) {
+      if (!selection) {
         return;
       }
 
@@ -33428,20 +33457,25 @@ var CommentableText = function (_React$Component) {
   }, {
     key: 'clearSelection',
     value: function clearSelection() {
-      this.setState({ selection: {} });
+      this.setState({ selection: null });
     }
   }, {
     key: 'onMouseUp',
     value: function onMouseUp(e) {
       var selection = window.getSelection();
       var range = selection.getRangeAt(0);
-      var start = range.startOffset;
-      var end = range.endOffset;
 
-      if (end <= start || range.startContainer != range.endContainer) {
+      var commonAncestor = range.commonAncestorContainer;
+      var paragraph = findElement(commonAncestor, 'P');
+
+      if (!paragraph) {
         this.clearSelection();
         return;
       }
+
+      var text = selection.toString();
+      var start = getPreCaretOffset(range, paragraph);
+      var end = start + text.length;
 
       var selectionRect = range.getBoundingClientRect();
       var nodeRect = __WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.findDOMNode(this).getBoundingClientRect();
@@ -33453,7 +33487,6 @@ var CommentableText = function (_React$Component) {
         maxWidth: nodeRect.width
       };
 
-      var paragraph = selection.focusNode.parentNode;
       var index = Number(paragraph.dataset.index);
 
       this.setState({
@@ -33461,8 +33494,8 @@ var CommentableText = function (_React$Component) {
           paragraph: index,
           start: start,
           end: end,
-          rect: rect,
-          text: selection.toString()
+          text: text,
+          rect: rect
         }
       });
     }
@@ -33473,8 +33506,22 @@ var CommentableText = function (_React$Component) {
         'div',
         { className: __WEBPACK_IMPORTED_MODULE_2__commentable_text_css___default.a.commentableText, onMouseUp: this.onMouseUp },
         this.renderText(),
-        this.renderToolbar()
+        this.renderToolbar(),
+        this.renderSelection()
       );
+    }
+  }, {
+    key: 'renderSelection',
+    value: function renderSelection() {
+      var selection = this.state.selection;
+
+      if (!selection) {
+        return;
+      }
+
+      var paragraph = this.props.text.split(/\n+/)[selection.paragraph];
+
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Paragraph, { text: paragraph, index: selection.paragraph, highlight: { quote: selection } });
     }
   }, {
     key: 'renderText',
@@ -33497,7 +33544,7 @@ var CommentableText = function (_React$Component) {
       var selection = this.state.selection;
 
 
-      if (!selection.rect) {
+      if (!selection) {
         return;
       }
 
@@ -33517,13 +33564,13 @@ CommentableText.propTypes = {
 /* harmony default export */ __webpack_exports__["a"] = (CommentableText);
 
 /***/ }),
-/* 531 */
+/* 532 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(532);
+var content = __webpack_require__(533);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -33548,7 +33595,7 @@ if(false) {
 }
 
 /***/ }),
-/* 532 */
+/* 533 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(141)(undefined);
@@ -33567,7 +33614,7 @@ exports.locals = {
 };
 
 /***/ }),
-/* 533 */
+/* 534 */
 /***/ (function(module, exports) {
 
 
@@ -33662,12 +33709,12 @@ module.exports = function (css) {
 
 
 /***/ }),
-/* 534 */
+/* 535 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_redux__ = __webpack_require__(94);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_comment_form__ = __webpack_require__(535);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_comment_form__ = __webpack_require__(536);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_comments_actions__ = __webpack_require__(143);
 
 
@@ -33693,7 +33740,7 @@ function mapDispatchToProps(dispatch) {
 /* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_0_react_redux__["b" /* connect */])(mapStateToProps, mapDispatchToProps)(__WEBPACK_IMPORTED_MODULE_1__components_comment_form__["a" /* default */]));
 
 /***/ }),
-/* 535 */
+/* 536 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -33702,7 +33749,7 @@ function mapDispatchToProps(dispatch) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(72);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__comment_form_css__ = __webpack_require__(536);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__comment_form_css__ = __webpack_require__(537);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__comment_form_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__comment_form_css__);
 
 
@@ -33783,13 +33830,13 @@ CommentForm.propTypes = {
 };
 
 /***/ }),
-/* 536 */
+/* 537 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(537);
+var content = __webpack_require__(538);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -33814,7 +33861,7 @@ if(false) {
 }
 
 /***/ }),
-/* 537 */
+/* 538 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(141)(undefined);
@@ -33834,12 +33881,12 @@ exports.locals = {
 };
 
 /***/ }),
-/* 538 */
+/* 539 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_redux__ = __webpack_require__(94);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_comment_section__ = __webpack_require__(539);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_comment_section__ = __webpack_require__(540);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__entities_comments_actions__ = __webpack_require__(143);
 
 
@@ -33866,7 +33913,7 @@ function mapDispatchToProps(dispatch) {
 /* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_0_react_redux__["b" /* connect */])(mapStateToProps, mapDispatchToProps)(__WEBPACK_IMPORTED_MODULE_1__components_comment_section__["a" /* default */]));
 
 /***/ }),
-/* 539 */
+/* 540 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -33933,13 +33980,13 @@ CommentSection.propTypes = {
 };
 
 /***/ }),
-/* 540 */
+/* 541 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(541);
+var content = __webpack_require__(542);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -33964,7 +34011,7 @@ if(false) {
 }
 
 /***/ }),
-/* 541 */
+/* 542 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(141)(undefined);
@@ -33978,12 +34025,6 @@ exports.push([module.i, "._2x3crhRdZ_IlEol3Rzgyfm *{-webkit-box-sizing:border-bo
 exports.locals = {
 	"app": "_2x3crhRdZ_IlEol3Rzgyfm"
 };
-
-/***/ }),
-/* 542 */
-/***/ (function(module, exports) {
-
-module.exports = "The oncilla (Leopardus tigrinus), also known as the northern tiger cat and tigrillo, is a small spotted cat ranging from Central America up to central Brazil. It is listed as Vulnerable on the IUCN Red List because the population is threatened by deforestation and conversion of habitat to agriculture.\n\nIn 2013, it was proposed to assign the population in southern Brazil to a new species L. guttulus, after it was found not to be interbreeding with the L. tigrinus population in northeast Brazil.\n\nThe oncilla resembles the margay and the ocelot, but it is smaller, with a slender build and narrower muzzle. It grows to 38 to 59 centimetres (15 to 23 in) long, plus a 20 to 42 centimetres (7.9 to 16.5 in) tail. While this is somewhat longer than the average domestic cat, Leopardus tigrinus is generally lighter, weighing 1.5 to 3 kilograms (3.3 to 6.6 lb).\n\nThe fur is thick and soft, ranging from light brown to dark ochre, with numerous dark rosettes across the back and flanks. The underside is pale with dark spots and the tail is ringed. The backs of the ears are black with bold ocelli. The rosettes are black or brown, open in the center, and irregularly shaped. The legs have medium-sized spots tapering to smaller spots near the paws. This coloration helps the oncilla blend in with the mottled sunlight of the tropical forest understory. The oncilla's jaw is shortened, with fewer teeth, but with well-developed carnassials and canines.\n"
 
 /***/ })
 /******/ ]);

@@ -3,7 +3,21 @@ import ReactDOM from 'react-dom';
 import styles from './commentable_text.css';
 import PropTypes from 'prop-types';
 
-function Paragraph({ highlight = null, text, index }) {
+function getPreCaretOffset(range, paragraph) {
+  // https://stackoverflow.com/a/12500791/1375004
+  var selected = range.toString().length;
+  var preCaretRange = range.cloneRange();
+  preCaretRange.selectNodeContents(paragraph);
+  preCaretRange.setEnd(range.endContainer, range.endOffset);
+
+  if (selected){
+    return preCaretRange.toString().length - selected;
+  } else {
+    return preCaretRange.toString().length;
+  }
+}
+
+function Paragraph({ highlight = null, text = '', index }) {
   if (highlight) {
     const { quote } = highlight;
 
@@ -44,6 +58,14 @@ function CommentToolbar(props) {
   );
 }
 
+function findElement(element, nodeName) {
+  if (element.nodeName === nodeName) {
+    return element;
+  }
+
+  return findElement(element.parentNode, nodeName);
+}
+
 export default
 class CommentableText extends React.Component {
   static propTypes = {
@@ -53,7 +75,7 @@ class CommentableText extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { selection: {} };
+    this.state = { selection: null };
     this.onMouseUp = this.onMouseUp.bind(this);
     this.newComment = this.newComment.bind(this);
   }
@@ -61,7 +83,7 @@ class CommentableText extends React.Component {
   newComment() {
     const { selection } = this.state;
 
-    if (!selection.text) {
+    if (!selection) {
       return;
     }
 
@@ -72,19 +94,24 @@ class CommentableText extends React.Component {
   }
 
   clearSelection() {
-    this.setState({ selection: {} });
+    this.setState({ selection: null });
   }
 
   onMouseUp(e) {
     const selection = window.getSelection();
     const range = selection.getRangeAt(0);
-    const start = range.startOffset;
-    const end = range.endOffset;
 
-    if (end <= start || range.startContainer != range.endContainer) {
+    const commonAncestor = range.commonAncestorContainer;
+    const paragraph = findElement(commonAncestor, 'P');
+
+    if (!paragraph) {
       this.clearSelection();
       return;
     }
+
+    const text = selection.toString();
+    const start = getPreCaretOffset(range, paragraph);
+    const end = start + text.length;
 
     const selectionRect = range.getBoundingClientRect();
     const nodeRect = ReactDOM.findDOMNode(this).getBoundingClientRect();
@@ -96,7 +123,6 @@ class CommentableText extends React.Component {
       maxWidth: nodeRect.width,
     };
 
-    const paragraph = selection.focusNode.parentNode;
     const index = Number(paragraph.dataset.index);
 
     this.setState({
@@ -104,8 +130,8 @@ class CommentableText extends React.Component {
         paragraph: index,
         start,
         end,
+        text,
         rect,
-        text: selection.toString()
       }
     });
   }
@@ -115,8 +141,22 @@ class CommentableText extends React.Component {
       <div className={styles.commentableText} onMouseUp={this.onMouseUp}>
         {this.renderText()}
         {this.renderToolbar()}
+        {this.renderSelection()}
       </div>
     );
+  }
+
+
+  renderSelection() {
+    const selection = this.state.selection;
+    
+    if (!selection) {
+      return;
+    }
+
+    const paragraph = this.props.text.split(/\n+/)[selection.paragraph];
+
+    return <Paragraph text={paragraph} index={selection.paragraph} highlight={{ quote: selection }} />;
   }
 
   renderText() {
@@ -138,7 +178,7 @@ class CommentableText extends React.Component {
   renderToolbar() {
     const { selection } = this.state;
 
-    if (!selection.rect) {
+    if (!selection) {
       return;
     }
 
