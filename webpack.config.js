@@ -1,5 +1,4 @@
 const path = require('path');
-// const BabiliPlugin = require('babili-webpack-plugin');
 const webpack = require('webpack');
 
 const plugins = [];
