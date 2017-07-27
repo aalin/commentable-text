@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import styles from './commentable_text.css';
 import PropTypes from 'prop-types';
 
+const MIN_SELECTED_RANGE = 3;
+
 function getPreCaretOffset(range, paragraph) {
   // https://stackoverflow.com/a/12500791/1375004
   var selected = range.toString().length;
@@ -63,7 +65,11 @@ function findElement(element, nodeName) {
     return element;
   }
 
-  return findElement(element.parentNode, nodeName);
+  if (element.parentNode) {
+    return findElement(element.parentNode, nodeName);
+  }
+
+  return null;
 }
 
 export default
@@ -100,6 +106,12 @@ class CommentableText extends React.Component {
   onMouseUp(e) {
     const selection = window.getSelection();
     const range = selection.getRangeAt(0);
+    const text = range.toString();
+
+    if (text.length < MIN_SELECTED_LENGTH) {
+      this.clearSelection();
+      return;
+    }
 
     const commonAncestor = range.commonAncestorContainer;
     const paragraph = findElement(commonAncestor, 'P');
@@ -109,7 +121,6 @@ class CommentableText extends React.Component {
       return;
     }
 
-    const text = selection.toString();
     const start = getPreCaretOffset(range, paragraph);
     const end = start + text.length;
 
@@ -141,11 +152,10 @@ class CommentableText extends React.Component {
       <div className={styles.commentableText} onMouseUp={this.onMouseUp}>
         {this.renderText()}
         {this.renderToolbar()}
-        {this.renderSelection()}
+        {/* this.renderSelection() */}
       </div>
     );
   }
-
 
   renderSelection() {
     const selection = this.state.selection;

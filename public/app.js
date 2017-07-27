@@ -33334,6 +33334,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
+var MIN_SELECTED_RANGE = 3;
+
 function getPreCaretOffset(range, paragraph) {
   // https://stackoverflow.com/a/12500791/1375004
   var selected = range.toString().length;
@@ -33418,7 +33420,11 @@ function findElement(element, nodeName) {
     return element;
   }
 
-  return findElement(element.parentNode, nodeName);
+  if (element.parentNode) {
+    return findElement(element.parentNode, nodeName);
+  }
+
+  return null;
 }
 
 var CommentableText = function (_React$Component) {
@@ -33464,6 +33470,12 @@ var CommentableText = function (_React$Component) {
     value: function onMouseUp(e) {
       var selection = window.getSelection();
       var range = selection.getRangeAt(0);
+      var text = range.toString();
+
+      if (text.length < MIN_SELECTED_LENGTH) {
+        this.clearSelection();
+        return;
+      }
 
       var commonAncestor = range.commonAncestorContainer;
       var paragraph = findElement(commonAncestor, 'P');
@@ -33473,7 +33485,6 @@ var CommentableText = function (_React$Component) {
         return;
       }
 
-      var text = selection.toString();
       var start = getPreCaretOffset(range, paragraph);
       var end = start + text.length;
 
@@ -33506,8 +33517,7 @@ var CommentableText = function (_React$Component) {
         'div',
         { className: __WEBPACK_IMPORTED_MODULE_2__commentable_text_css___default.a.commentableText, onMouseUp: this.onMouseUp },
         this.renderText(),
-        this.renderToolbar(),
-        this.renderSelection()
+        this.renderToolbar()
       );
     }
   }, {
