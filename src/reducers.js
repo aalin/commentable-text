@@ -1,10 +1,8 @@
 import { combineReducers } from 'redux';
+import entities from './entities';
 
-const r = require.context("./entities", true, /\/reducer\.js$/);
-
-const reducers = r.keys().reduce((obj, file) => {
-  const reducer = file.match(/^\.\/(.*?)\//)[1];
-  return { ...obj, [reducer]: r(file).default };
+const reducers = Object.keys(entities).reduce((obj, entity) => {
+  return { [entity]: entities[entity].reducer };
 }, {});
 
 export default combineReducers(reducers);
