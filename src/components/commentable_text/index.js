@@ -7,12 +7,12 @@ const MIN_SELECTED_RANGE = 3;
 
 function getPreCaretOffset(range, paragraph) {
   // https://stackoverflow.com/a/12500791/1375004
-  var selected = range.toString().length;
-  var preCaretRange = range.cloneRange();
+  const selected = range.toString().length;
+  const preCaretRange = range.cloneRange();
   preCaretRange.selectNodeContents(paragraph);
   preCaretRange.setEnd(range.endContainer, range.endOffset);
 
-  if (selected){
+  if (selected) {
     return preCaretRange.toString().length - selected;
   } else {
     return preCaretRange.toString().length;
@@ -30,7 +30,7 @@ function Paragraph({ highlight = null, text = '', index }) {
     return (
       <p data-index={index}>
         {pre}
-        <span className={styles.highlight}>{mid}</span>
+        <span className={styles.highlight}>{mid}<span className={styles.hello}>{highlight.comment}</span></span>
         {post}
       </p>
     );
