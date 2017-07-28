@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import styles from './commentable_text.css';
+import styles from './styles.css';
 import PropTypes from 'prop-types';
 
 const MIN_SELECTED_RANGE = 3;
@@ -108,7 +108,7 @@ class CommentableText extends React.Component {
     const range = selection.getRangeAt(0);
     const text = range.toString();
 
-    if (text.length < MIN_SELECTED_LENGTH) {
+    if (text.length < MIN_SELECTED_RANGE) {
       this.clearSelection();
       return;
     }

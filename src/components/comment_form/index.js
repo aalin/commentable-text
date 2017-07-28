@@ -1,18 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './comment_form.css';
+import styles from './styles.css';
 
 function createHandler(onCreate, quote, e) {
+  e.preventDefault();
   onCreate(quote, e.target.form['comment'].value);
 }
 
-function preventDefault(fn) {
+function preventDefault(cb = null) {
   return (e) => {
     if (e && e.preventDefault) {
       e.preventDefault();
     };
 
-    fn();
+    cb && cb();
   }
 }
 

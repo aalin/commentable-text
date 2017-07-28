@@ -16,7 +16,15 @@ function CommentSection({ comments, goToComment }) {
     <div>
       <h3>Comments</h3>
       <ul>
-        {comments.map((c, i) => <Comment key={i} {...c} onClick={goToComment.bind(null, c)} />)}
+      {
+        comments.map((c) => (
+          <Comment
+            key={c.id}
+            {...c}
+            onClick={goToComment.bind(null, c)}
+          />
+        ))
+      }
       </ul>
     </div>
   );
