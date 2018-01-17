@@ -1,5 +1,8 @@
 # Commentable text
 
+This is the result of an assignment that I made for a job interview, I spent approximately 5 hours on it.
+
+
 ## Install
 
     npm install
